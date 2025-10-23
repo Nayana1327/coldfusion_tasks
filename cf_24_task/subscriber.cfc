@@ -15,7 +15,6 @@
             <cfset result.exists = true>
         </cfif>
 
-        <!--- Return proper JSON --->
         <cfreturn serializeJSON(result)>
     </cffunction>
 

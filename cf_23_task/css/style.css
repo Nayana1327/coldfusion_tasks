@@ -1,38 +1,33 @@
-/* Base Styles */
 body {
     font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
-    /* The distinctive bright green background from the original image */
     background-color: #6C9322; 
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
     margin: 0;
-    padding: 30px 10px; /* Padding for the green background space */
+    padding: 30px 10px; 
 }
 
 .form-container {
     background-color: #fff;
     width: 100%;
-    max-width: 650px; /* A width that matches the image proportion */
+    max-width: 650px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border-radius: 3px;
 }
 
-/* --- HEADER STYLES --- */
 .form-header {
-    /* Light green header background */
     background-color: #71b311; 
     padding: 15px 30px;
     border-bottom: 1px solid #ddd;
 }
 .wufoo-logo {
-    height: 80px; /* Adjusted height for better visibility */
+    height: 80px; 
     margin-bottom: 5px;
 }
 
-/* --- FORM BODY STYLES --- */
 form {
     padding: 25px 30px;
 }
@@ -57,7 +52,7 @@ h1 {
     margin-top: 30px;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #eee; /* Light separator line */
+    border-bottom: 1px solid #eee;
     font-weight: normal;
 }
 
@@ -77,7 +72,6 @@ h1 {
     margin-left: 2px;
 }
 
-/* --- INPUT STYLES (General) --- */
 input[type="text"],
 input[type="email"],
 select {
@@ -98,7 +92,6 @@ select:focus {
 }
 
 input[type="number"] {
-    /* Inherit the padding, border, and sizing from the main input styles */
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -107,9 +100,8 @@ input[type="number"] {
     transition: border-color 0.2s;
 }
 
-/* --- HIGHLIGHTED FIELD --- */
 .highlighted {
-    background-color: #FDF9E2; /* Light yellow/cream background */
+    background-color: #FDF9E2;
     padding: 15px 20px;
     border-radius: 3px;
     margin-bottom: 25px;
@@ -119,23 +111,20 @@ input[type="number"] {
     margin-bottom: 10px;
 }
 select {
-    /* Custom select arrow (similar to previous solution) */
     appearance: none;
-   
     background-repeat: no-repeat;
     background-position: right 8px center;
     background-size: 20px;
     padding-right: 30px; 
 }
 
-/* --- RADIO GROUP --- */
 .radio-group {
     display: flex;
     gap: 20px;
 }
 .radio-group input[type="radio"] {
     margin-right: 5px;
-    width: auto; /* Override general width */
+    width: auto;
 }
 .radio-group label {
     font-weight: normal;
@@ -143,8 +132,6 @@ select {
     align-items: center;
     margin-bottom: 0;
 }
-
-/* --- DATE GROUP --- */
 .date-group {
     display: flex;
     align-items: center;
@@ -155,7 +142,7 @@ select {
     text-align: center;
     padding: 8px 5px;
 }
-.date-group input:nth-child(5) { /* YYYY input */
+.date-group input:nth-child(5) {
     width: 70px;
 }
 .calendar-icon {
@@ -168,8 +155,6 @@ select {
     margin-left: 5px;
     line-height: 1;
 }
-
-/* --- FILE UPLOAD --- */
 .hidden-file-input {
     display: none;
 }
@@ -187,7 +172,7 @@ select {
     color: #333;
     margin-right: 10px;
     transition: background-color 0.2s;
-    line-height: 1.5; /* Ensure text alignment */
+    line-height: 1.5; 
 }
 .custom-file-upload:hover {
     background-color: #e0e0e0;
@@ -204,16 +189,15 @@ select {
     margin-bottom: 0;
 }
 
-/* --- SALARY GROUP --- */
 .salary-group {
     display: flex;
-    align-items: flex-start; /* Align labels correctly */
+    align-items: flex-start; 
     gap: 5px;
 }
-.salary-group > span { /* The $ and . separators */
+.salary-group > span { 
     font-size: 1.2em;
     color: #333;
-    padding-top: 8px; /* Align with input */
+    padding-top: 8px; 
 }
 .input-and-label {
     display: flex;
@@ -234,7 +218,6 @@ select {
     margin-top: 3px;
 }
 
-/* --- NAME GROUP (First/Last) --- */
 .name-group {
     display: flex;
     gap: 15px;
@@ -248,7 +231,6 @@ select {
     margin-top: 3px;
 }
 
-/* --- PHONE GROUP --- */
 .phone-group {
     display: flex;
     align-items: center;
@@ -258,7 +240,7 @@ select {
     width: 60px;
     text-align: center;
 }
-.phone-group input:nth-child(5) { /* Last part **** */
+.phone-group input:nth-child(5) {
     width: 80px;
 }
 .phone-group > span {
@@ -266,7 +248,6 @@ select {
     color: #333;
 }
 
-/* --- SUBMIT BUTTON --- */
 .submit-button {
     background-color: #6C9322;
     color: white;
@@ -282,47 +263,4 @@ select {
 
 .submit-button:hover {
     background-color: #5a7d1e;
-}
-
-/* --- FOOTER SECTIONS --- */
-.re-captcha-info {
-    background-color: #f8f8f8;
-    padding: 15px 30px;
-    font-size: 0.8em;
-    color: #666;
-    border-top: 1px solid #eee;
-    text-align: left;
-}
-.re-captcha-info p {
-    margin: 0;
-}
-.re-captcha-info a {
-    color: #6C9322;
-    text-decoration: none;
-}
-.form-footer {
-    padding: 15px 30px;
-    text-align: center;
-    /* The footer has a white background, separate from the reCAPTCHA bar */
-    background-color: #fff; 
-}
-.form-footer .wufoo-logo-text {
-    font-size: 16px;
-    opacity: 0.7;
-}
-
-/* Responsive adjustments */
-@media (max-width: 700px) {
-    .form-container {
-        margin: 10px;
-    }
-    form {
-        padding: 20px;
-    }
-    .name-group, .salary-group, .date-group, .phone-group {
-        flex-wrap: wrap;
-    }
-    .salary-group .input-and-label {
-        width: 40%;
-    }
 }
