@@ -16,7 +16,7 @@
             <img src="images/wufoo.png" alt="Wufoo by SurveyMonkey Logo" class="wufoo-logo">
         </header>
 
-        <form action="submitForm.cfc" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+        <form action="submitForm.cfm" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
 
             <h1>Employment Application</h1>
             <p class="company-name">Infinity Box Inc.</p>
@@ -63,8 +63,6 @@
                 <label for="resume">Attach a Copy of Your Resume</label>
                 <div class="file-upload-wrapper">
                     <input type="file" id="resume" name="resume">
-                    <label for="resume" class="custom-file-upload">Choose File</label>
-                    <span id="file-name">No file chosen</span>
                 </div>
                 <p class="file-info">Word or PDF Documents Only</p>
             </div>
@@ -124,7 +122,7 @@
                     </div>
                 </div>
             </div>
-                <button type="submit" name="submit" class="submit-button">Submit</button>
+                <input type="submit" name="submit" value="Submit" class="submit-button">
         </form>
     </div>
 </body>
