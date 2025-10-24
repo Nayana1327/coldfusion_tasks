@@ -4,20 +4,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Task on Image & Thumbnail</title>
-        <link rel="stylesheet" href="assets/style.css">
+        <link rel="stylesheet" href="../assets/style.css">
     </head>
     <body>
         <form class="formClass" method="post" enctype="multipart/form-data">
-            <label for="name">Name:</label>
-            <input class="inputClass" type="text" name="name" required placeholder="Enter image name">
+            <label>Name:</label>
+            <input class="inputClass" type="text" name="name" required placeholder="Enter image name"><br>
 
-            <label for="description">Description:</label>
-            <textarea class="inputClass" name="description" rows="3" cols="20" required placeholder="Enter image description"></textarea>
+            <label>Description:</label>
+            <textarea class="inputClass" name="description" rows="3" cols="20" required placeholder="Enter image description"></textarea><br>
 
-            <label for="fileInput">Select Image:</label>
-            <input class="inputClass" type="file" name="fileInput" required>
+            <label>Select Image:</label>
+            <input class="inputClass" type="file" name="fileInput" required><br>
 
-            <input type="submit" name="submitButton" value="Upload">
+            <input type="submit" name="submitButton" value="Upload"><br>
             <a href="image_list.cfm">View Uploaded Images</a>
         </form>
 
