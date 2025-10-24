@@ -1,0 +1,266 @@
+body {
+    font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+    background-color: #6C9322; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 10px; 
+}
+
+.form-container {
+    background-color: #fff;
+    width: 100%;
+    max-width: 650px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.form-header {
+    background-color: #71b311; 
+    padding: 15px 30px;
+    border-bottom: 1px solid #ddd;
+}
+.wufoo-logo {
+    height: 80px; 
+    margin-bottom: 5px;
+}
+
+form {
+    padding: 25px 30px;
+}
+
+h1 {
+    font-size: 1.6em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+.company-name {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 1.4em;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-weight: normal;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.required {
+    color: #D9534F;
+    margin-left: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #6C9322;
+    outline: none;
+}
+
+input[type="number"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+.highlighted {
+    background-color: #FDF9E2;
+    padding: 15px 20px;
+    border-radius: 3px;
+    margin-bottom: 25px;
+    border: 1px solid #F0EAD2; 
+}
+.highlighted label {
+    margin-bottom: 10px;
+}
+select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 20px;
+    padding-right: 30px; 
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+    width: auto;
+}
+.radio-group label {
+    font-weight: normal;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+.date-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.date-group input[type="text"] {
+    width: 50px;
+    text-align: center;
+    padding: 8px 5px;
+}
+.date-group input:nth-child(5) {
+    width: 70px;
+}
+.calendar-icon {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-left: 5px;
+    line-height: 1;
+}
+.hidden-file-input {
+    display: none;
+}
+.file-upload-wrapper {
+    display: flex;
+    align-items: center;
+}
+.custom-file-upload {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #333;
+    margin-right: 10px;
+    transition: background-color 0.2s;
+    line-height: 1.5; 
+}
+.custom-file-upload:hover {
+    background-color: #e0e0e0;
+}
+#file-name {
+    font-style: italic;
+    color: #888;
+    font-size: 0.9em;
+}
+.file-info {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.salary-group {
+    display: flex;
+    align-items: flex-start; 
+    gap: 5px;
+}
+.salary-group > span { 
+    font-size: 1.2em;
+    color: #333;
+    padding-top: 8px; 
+}
+.input-and-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.salary-input {
+    width: 90px;
+    text-align: right;
+    padding-right: 2px;
+}
+.salary-input.cents {
+    width: 70px;
+}
+.currency-label {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 3px;
+}
+
+.name-group {
+    display: flex;
+    gap: 15px;
+}
+.name-group .input-and-label {
+    flex: 1;
+}
+.sub-label {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 3px;
+}
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.phone-group input {
+    width: 60px;
+    text-align: center;
+}
+.phone-group input:nth-child(5) {
+    width: 80px;
+}
+.phone-group > span {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.submit-button {
+    background-color: #6C9322;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #5a7d1e;
+}

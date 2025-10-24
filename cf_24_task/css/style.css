@@ -1,0 +1,25 @@
+.formClass {
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    min-width: 300px;
+}
+.inputClass {
+    margin-bottom: 15px;
+    width: 20%;
+    padding: 8px;
+}
+input[type="submit"] {
+    background-color: #6C9322;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+}
+.message {
+    margin-top: 10px;
+    font-size: 14px;
+}
+.error { color: red; }
+.success { color: green; }
