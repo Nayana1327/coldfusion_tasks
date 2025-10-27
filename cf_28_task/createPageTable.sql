@@ -1,0 +1,5 @@
+CREATE TABLE page (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    page_name VARCHAR(100) NOT NULL,
+    page_desc VARCHAR(250) NOT NULL
+);
