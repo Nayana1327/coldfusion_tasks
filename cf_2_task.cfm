@@ -11,10 +11,8 @@
             Enter a Number: <input class="inputClass" type="number" name="number" required>
             <input type="submit" name="submit" value="Submit">
         </form>
-
         <cfif structKeyExists(form, "submit")>
             <cfset numberInput = val(form.number)> 
-
             <cfswitch expression = "#numberInput#">
                 <cfcase value = "5">
                     <p class="pClass">5 is Very good</p>

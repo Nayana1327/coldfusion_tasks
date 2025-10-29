@@ -10,10 +10,8 @@
         <cfif NOT structKeyExists(session, "username")>
             <cflocation url="login.cfm">
         </cfif>
-
         <cfset pageAction = createObject("component", "service")>
         <cfset pages = pageAction.getPages()>
-
         <cfoutput>
             <h1>Welcome, #session.username#!</h1>
             <cfif pages.recordCount EQ 0>

@@ -9,7 +9,6 @@
     <body>
         <cfset tagCloud = createObject("component", "tagCloud")>
         <cfset wordQuery = tagCloud.getWordCount()>
-
         <cfif arrayLen(wordQuery) EQ 0>
             <p>No words to display.</p>
         <cfelse>

@@ -15,9 +15,9 @@
                 <cfset numberValue = int(trim(form.numberInput))>
                 <cfloop index="i" from="1" to="#numberValue#">
                     <cfif i MOD 2 EQ 0>
-                            <cfoutput><span style="color:green;">#i#</span>&nbsp;</cfoutput>
-                        <cfelse>
-                            <cfoutput><span style="color:blue;">#i#</span>&nbsp;</cfoutput>
+                        <cfoutput><span style="color:green;">#i#</span>&nbsp;</cfoutput>
+                    <cfelse>
+                        <cfoutput><span style="color:blue;">#i#</span>&nbsp;</cfoutput>
                     </cfif>
                 </cfloop>
             </cfif>

@@ -12,11 +12,9 @@
             Value: <input class="inputClass" type="text" name="valueField" required>
             <input type="submit" name="submit" value="Submit">
         </form>
-
         <cfif structKeyExists(form, "submit")>
             <cfset myStructNew = structNew()>
             <cfset structInsert(myStructNew, trim(form.keyField), trim(form.valueField))>
-
             <h3>Structure Output:</h3>
             <cfdump var="#myStructNew#">
         </cfif>

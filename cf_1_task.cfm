@@ -11,7 +11,6 @@
             Enter a number: <input type="number" name="number" required class="inputClass">
             <input type="submit" name="submit" value="Submit">
         </form>
-
         <cfif structKeyExists(form, "submit")> 
             <cfset numberInput = val(form.number)>
             <cfif numberInput EQ 5>
@@ -26,6 +25,5 @@
                 <p class="pClass">Invalid input. Please enter a number between 1 and 5.</p>
             </cfif>
         </cfif>
-
     </body>
 </html>

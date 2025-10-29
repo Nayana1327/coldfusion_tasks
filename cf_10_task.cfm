@@ -12,21 +12,18 @@
             Value: <input class="inputClass" type="text" name="valueField" required>
             <input type="submit" name="submit" value="Submit">
         </form>
-
         <cfif NOT structKeyExists(session, "myStructureSort")>
             <cfset session.myStructureSort = {}>
         </cfif>
         <cfif structKeyExists(form, "submit")>
             <cfset keyValue = trim(form.keyField)>
             <cfset value = trim(form.valueField)>
-
             <cfif structKeyExists(session.myStructureSort, keyValue)>
-                    <cfset structUpdate(session.myStructureSort, keyValue, value)>
-                <cfelse>
-                    <cfset structInsert(session.myStructureSort, keyValue, value)>
+                <cfset structUpdate(session.myStructureSort, keyValue, value)>
+            <cfelse>
+                <cfset structInsert(session.myStructureSort, keyValue, value)>
             </cfif>
             <cfset sortedKeys = structSort(session.myStructureSort, "text", "asc")>
-            
             <cfdump var="#session.myStructureSort#">
         </cfif>
     </body>

@@ -25,7 +25,6 @@
             }
            session.captcha = captchaValue;
         </cfscript>
-
         <form action="" method="post" class="formClass">
             Email: <input class="inputClass" type="text" name="email" required>
             Captcha:<input class="inputClass" type="text" name="captcha_input" required>

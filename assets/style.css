@@ -17,6 +17,11 @@ input[type="submit"] {
     font-size: 1em;
     font-weight: bold;
 }
+.pClass{
+    color: rgb(21, 21, 21);
+    font-size: 2em;
+    font-weight: bold;
+}
 .h3 {
     color: rgb(60, 65, 211);
     font-size: 4em;

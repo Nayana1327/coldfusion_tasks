@@ -8,7 +8,6 @@
             <cfset phoneNumber = trim(form.phonePart1) & "-" & trim(form.phonePart2) & "-" & trim(form.phonePart3)>
             <cfset salary = trim(form.salaryDollars) & "." & trim(form.salaryCents)>
             <cfset startDate = trim(form.startYear) & "-" & trim(form.startMonth) & "-" & trim(form.startDay)>
-
             <cfif structKeyExists(form, "resume") AND len(trim(form.resume))>
                 <cfset uploadDir = expandPath("./uploads/")>
                 <cfif NOT directoryExists(uploadDir)>
@@ -25,7 +24,7 @@
                 <cfset resume = "">
             </cfif>
                 <cfinvoke 
-                component="application"
+                component="service"
                 method="insertApplication"
                 firstName="#form.firstName#"
                 lastName=#form.lastName#
@@ -38,7 +37,6 @@
                 salary=#salary#
                 resume=#resume#
                 />
-
                 <cfoutput>
                     <p style="color:green;">Data saved successfully</p>
                 </cfoutput>

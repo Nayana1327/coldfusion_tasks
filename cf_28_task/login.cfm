@@ -12,11 +12,9 @@
             Password: <input class="inputClass" type="password"  name="password" required><br>
             <input type="submit" name="login" value="Login">
         </form>
-
         <cfif structKeyExists(form, "login")>
             <cfset username = trim(form.username)>
             <cfset password = trim(form.password)>
-
             <cfif username EQ "" OR password EQ "">
                 <cfoutput>Please enter both username and password.</cfoutput>
             </cfif>
@@ -29,7 +27,6 @@
                 <cfif getUser.password EQ password>
                     <cfset session.username = getUser.username>
                     <cfset session.role = getUser.role>
-
                     <cfif getUser.role EQ "admin" OR getUser.role EQ "editor">
                         <cflocation url="admin.cfm">
                     <cfelseif getUser.role EQ "user">

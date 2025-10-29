@@ -8,8 +8,7 @@
     <body>
         <cfset jsonString = '[{"Name":"saravanan","Age":27,"LOCATION":"dubai"},{"Name":"Ram","Age":26,"LOCATION":"Kovilpatti"}]'>
         <cfset dataStruct = DeserializeJSON(jsonString)>
-
-        <table border="1" cellpadding="6" cellspacing="0">
+        <table>
             <tr>
                 <th>Name</th>
                 <th>Age</th>

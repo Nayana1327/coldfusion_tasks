@@ -11,17 +11,15 @@
             Enter Number: <input class="formClass" type="number" name="numberValue" required><br><br>
             <input type="submit" name="submit" value="Proceed">
         </form>
-
-
         <cfif structKeyExists(form, "submit")>
             <cfset numberInput = val(trim(form.numberValue))>
             <cfif numberInput GT 10>
-                    <p class="pClass">Invalid Entry please try number below 10</p>
-                <cfelse>
-                    <cfquery name="getUsers" datasource="CFTestDS">
-                        SELECT * FROM users ORDER BY firstname ASC
-                    </cfquery>
-                    <table border="1" cellpadding="5">
+                <p class="pClass">Invalid Entry please try number below 10</p>
+            <cfelse>
+                <cfquery name="getUsers" datasource="CFTestDS">
+                    SELECT * FROM users ORDER BY firstname ASC
+                </cfquery>
+                    <table>
                         <tr>
                             <th>ID</th>
                             <th>FirstName</th>
