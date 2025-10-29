@@ -10,7 +10,6 @@
         <cfif NOT structKeyExists(session, "loggedIn") OR NOT session.loggedIn>
             <cflocation url="login.cfm">
         </cfif>
-
         <cfoutput>
             <h1>Welcome, #session.username#!</h1>
             <a class="aClass" href="logout.cfm">Logout</a>

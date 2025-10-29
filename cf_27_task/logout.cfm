@@ -9,7 +9,6 @@
     <body>
         <cfset session.loggedIn = false>
         <cfset structDelete(session, "username")>
-
         <cflocation url="login.cfm">
     </body>
 </html>

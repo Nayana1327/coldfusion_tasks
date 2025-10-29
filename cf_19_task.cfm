@@ -13,8 +13,8 @@
             <cfif structKeyExists(form, "submit")>
                 <cfif structKeyExists(cookie, "VisitsCounter")> 
                     <cfset cookie.VisitsCounter = cookie.VisitsCounter + 1>
-                    <cfelse>
-                        <cfcookie name="VisitsCounter" value=1 expires="30">
+                <cfelse>
+                    <cfcookie name="VisitsCounter" value=1 expires="30">
                 </cfif>
                <cfoutput>
                     The value of VisitsCounter is: #cookie.VisitsCounter#

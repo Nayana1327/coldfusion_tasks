@@ -15,7 +15,6 @@
             <cfif structKeyExists(form, "submit")> 
                 <cfset inputString = trim(form.numberList)>
                 <cfset numberArray = listToArray(inputString, ',')>
-
                 <cfloop array="#numberArray#" item="item">
                     <cfif IsNumeric(item)>
                         <cfif item MOD 3 EQ 0>
@@ -25,8 +24,7 @@
                         </cfif>
                     </cfif>
                 </cfloop>
-
             </cfif>
-         </p>
+        </p>
     </body>
 </html>

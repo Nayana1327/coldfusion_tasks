@@ -11,7 +11,6 @@
             <textarea class="inputClass" type="text" name="inputValue"></textarea><br>
             <input type="submit" name="submit" value="Submit">
         </form>
-
         <cfif structKeyExists(form, "submit")>
             <cfset textValue = trim(form.inputValue)>
             <cfif textValue NEQ "">
@@ -20,7 +19,6 @@
                     method="init"
                     returnVariable="result"
                     textValue="#textValue#">
-
                 <cfif structKeyExists(result, "success") AND result.success>
                     <p>Words inserted successfully!</p>
                 <cfelse>

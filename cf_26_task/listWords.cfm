@@ -9,7 +9,6 @@
     <body>
         <cfset tagCloud = createObject("component", "tagCloud")>
         <cfset results = tagCloud.getWordCount()>
-
         <cfoutput>
             <cfloop array="#results#" index="item">
                 #item.word#(#item.count#)<br>

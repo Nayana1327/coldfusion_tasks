@@ -10,7 +10,6 @@
         <cfquery name="getImages" datasource="CFTestDS">
             SELECT * FROM images  WHERE id = <cfqueryparam value="#url.id#" cfsqltype="cf_sql_integer">
         </cfquery>
-
         <table>
             <tr>
                 <th>ID</th>
@@ -19,7 +18,6 @@
                 <th>Full Size Image</th>
                 <th>Thumbnail</th>
             </tr>
-
             <cfoutput query="getImages">
                 <tr>
                     <td align="center">#currentrow#</td>

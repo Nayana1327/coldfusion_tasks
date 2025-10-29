@@ -15,13 +15,10 @@
         <header class="form-header">
             <img src="images/wufoo.png" alt="Wufoo by SurveyMonkey Logo" class="wufoo-logo">
         </header>
-
         <form action="submitForm.cfm" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
-
             <h1>Employment Application</h1>
             <p class="company-name">Infinity Box Inc.</p>
             <hr>
-
             <div class="form-group highlight">
                 <label for="position">Which position are you applying for? <span class="required">*</span></label>
                 <select id="position" name="position">
@@ -32,7 +29,6 @@
                     <option value="Office Manager">Office Manager</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label>Are you willing to relocate? <span class="required">*</span></label>
                 <div class="radio-group">
@@ -40,7 +36,6 @@
                     <input type="radio" id="relocateNo" name="relocate" value="No"> No 
                 </div>
             </div>
-
             <div class="form-group date-field">
                 <label>When can you start? <span class="required">*</span></label>
                 <div class="date-group">
@@ -53,12 +48,10 @@
                     <button type="button" class="calendar-icon" id="calendarTrigger">📅</button>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="portfolio">Portfolio Web Site</label>
                 <input type="text" id="portfolio" name="portfolio" value="http://" class="full-width">
             </div>
-
             <div class="form-group">
                 <label for="resume">Attach a Copy of Your Resume</label>
                 <div class="file-upload-wrapper">
@@ -66,7 +59,6 @@
                 </div>
                 <p class="file-info">Word or PDF Documents Only</p>
             </div>
-
             <div class="form-group">
                 <label>Salary Requirements</label>
                 <div class="salary-group">
@@ -82,10 +74,8 @@
                     </div>
                 </div>
             </div>
-
             <hr>
             <h2>Your Contact Information</h2>
-
             <div class="form-group">
                 <label for="fullName">Name <span class="required">*</span></label>
                 <div class="name-group">
@@ -99,12 +89,10 @@
                     </div>
                 </div>
             </div>
-
             <div class="form-group">
                 <label for="email">Email Address <span class="required">*</span></label>
                 <input type="text" id="email" name="email" class="full-width">
             </div>
-
             <div class="form-group">
                 <label for="phone">Phone <span class="required">*</span></label>
                 <div class="phone-group">

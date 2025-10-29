@@ -10,7 +10,6 @@
         <cfquery name="getImages" datasource="CFTestDS"> 
             SELECT * FROM images ORDER BY id DESC
         </cfquery>
-
         <table>
             <tr>
                 <th>No</th>

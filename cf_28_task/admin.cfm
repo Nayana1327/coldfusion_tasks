@@ -22,20 +22,16 @@
                 </cfif>
             </cfif>
         </cfif>
-
         <cfset pages = pageAction.getPages()>
-
         <cfoutput>
         <h1>Welcome, #session.username#! (CMS)</h1>
-
         <form method="post" action="" class="formClass">
             <input type="hidden" name="action" value="add">
             <label>Page Name:</label> <input class="inputClass" type="text" name="page_name" required><br>
             <label>Description:</label> <input class="inputClass" type="text" name="page_desc" required><br>
             <input type="submit" name="submit" value="Add Page">
         </form> <br><br><br>
-
-       <cfif pages.recordCount EQ 0>
+        <cfif pages.recordCount EQ 0>
             <p>No Details to show.</p>
         <cfelse>
             <table border="1" cellpadding="6" cellspacing="0">
@@ -45,7 +41,6 @@
                     <th>Description</th>
                     <th>Actions</th>
                 </tr>
-
                 <cfloop query="pages">
                     <tr>
                         <td>#currentrow#</td>
@@ -59,7 +54,6 @@
                                 <input type="text" name="page_desc" value="#page_desc#">
                                 <input type="submit" name="submit" value="Update">
                             </form>
-
                             <form method="post" style="display:inline;">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="#id#">

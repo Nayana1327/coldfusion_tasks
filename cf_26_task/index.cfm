@@ -11,7 +11,6 @@
             <input type="file"  name="txtFile" required><br><br>
             <input type="submit" name="submit" value="Submit">
         </form>
-
         <cfif structKeyExists(form, "submit")> 
             <cfif structKeyExists(form, "txtFile") AND len(form.txtFile) GT 0>
                 <cfset uploadDir = expandPath("./uploads/")>

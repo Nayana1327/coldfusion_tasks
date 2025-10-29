@@ -16,17 +16,14 @@
             <cfif NOT structKeyExists(session, "myStructure")>
                 <cfset session.myStructure = {}>
             </cfif>
-
             <cfif structKeyExists(form, "submit")>
                 <cfset keyValue = trim(form.keyField)>
                 <cfset value = trim(form.valueField)>
-
                 <cfif structKeyExists(session.myStructure, keyValue)>
                         <cfoutput>#keyValue# already present. Cannot add again</cfoutput>
                     <cfelse>
                         <cfset structInsert(session.myStructure, keyValue, value)>
                 </cfif>
-                
                 <cfdump var="#session.myStructure#">
             </cfif>
         </p>

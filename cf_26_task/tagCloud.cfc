@@ -20,16 +20,13 @@
     <cffunction name="getWordCount" access="public" returntype="array" output="false">
         <cfset var getWords = "">
         <cfset var wordCounts = {}>
-
         <cfquery name="getWords" datasource="CFTestDS">
             SELECT word FROM file_words
         </cfquery>
-
         <cfloop query="getWords">
             <cfset var w = trim(getWords.word)>
             <cfset wordCounts[w] = (structKeyExists(wordCounts, w) ? wordCounts[w] + 1 : 1)>
         </cfloop>
-
         <cfset var wordArray = []>
         <cfloop collection="#wordCounts#" item="w">
             <cfset arrayAppend(wordArray, {
@@ -38,7 +35,6 @@
                 length = len(w)
             })>
         </cfloop>
-
         <cfset arraySort(wordArray, function(a, b) {
             if (a.count NEQ b.count)
                 return b.count - a.count;
@@ -47,7 +43,6 @@
             else
                 return compareNoCase(a.word, b.word);
         })>
-
         <cfreturn wordArray>
     </cffunction>
 </cfcomponent>

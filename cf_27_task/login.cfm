@@ -12,11 +12,9 @@
             Password: <input class="inputClass" type="password"  name="password" required><br>
             <input type="submit" name="login" value="Login">
         </form>
-
         <cfif structKeyExists(form, "login")>
             <cfset username = form.username>
             <cfset password = form.password>
-
             <cfif username EQ "admin" AND password EQ "password123">
                 <cfset session.loggedIn = true>
                 <cfset session.username = username>

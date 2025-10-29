@@ -17,11 +17,11 @@
             <label>Select Image:</label>
             <input class="inputClass" type="file" name="fileInput" required><br>
 
-            <input type="submit" name="submitButton" value="Upload"><br>
+            <input type="submit" name="submit" value="Upload"><br>
             <a href="image_list.cfm">View Uploaded Images</a>
         </form>
 
-        <cfif structKeyExists(form, "submitButton")>
+        <cfif structKeyExists(form, "submit")>
             <cfset uploadDir = expandPath("./uploads/")>
             <cfif NOT directoryExists(uploadDir)>
                 <cfdirectory action="create" directory="#uploadDir#">
