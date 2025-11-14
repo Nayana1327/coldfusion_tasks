@@ -99,4 +99,10 @@ input[type=text], input[type=password] {
     color: #1e73be;
     text-decoration: none;
 }
+.error { 
+    color: red; 
+}
+.success { 
+    color: green; 
+}
 
