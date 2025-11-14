@@ -6,6 +6,8 @@
         <title>Address Book</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/script.js"></script>
     </head>
     <body>
         <div class="navbar">
@@ -24,17 +26,18 @@
                     <img src="images/logo.png" alt="logo">
                 </div>
                 <div class="login-right">
-                    <span class="login-title">LOGIN</span>
-                    <form action="" method="post" id="loginForm">
-                        <input type="text" name="username" placeholder="Username" required><br>
-                        <input type="password" name="password" placeholder="Password" required><br>
-                        <input type="submit" name="login" class="login-button" value="LOGIN">
+                    <span class="login-title">SIGN UP</span>
+                    <form action="" method="post" id="registerForm">
+                        <input type="text" name="name" id="name" placeholder="Full Name" required><br>
+                        <input type="text" name="email" id="email" placeholder="Email ID" required><br>
+                        <input type="text" name="username" id="username" placeholder="Username" required><br>
+                        <input type="password" name="password" id="password" placeholder="Password" required><br>
+                        <input type="password" name="password" id="confirm_password" placeholder="Confirm Password" required><br>
+                        <input type="submit" name="register" class="login-button" value="REGISTER">
                     </form>
-                    <div class="register">
-                        Don’t have an account? <a href="register.cfm">Register Here</a>
-                    </div>
                 </div>
             </div>
         </div>
+        <div id="response"></div>
     </body>
 </html>
