@@ -1,0 +1,18 @@
+CREATE TABLE contacts (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    title NVARCHAR(16) NOT NULL,
+    first_name NVARCHAR(100) NOT NULL,
+    last_name NVARCHAR(100) NOT NULL,
+    gender NVARCHAR(16) NOT NULL,
+    dob DATE NOT NULL,
+    image NVARCHAR(260) NULL,   
+    address NVARCHAR(200) NOT NULL,
+    street NVARCHAR(200) NOT NULL,
+    city NVARCHAR(100) NOT NULL,
+    state NVARCHAR(100) NOT NULL,
+    zip_code NVARCHAR(20) NOT NULL,
+    phone NVARCHAR(50) NOT NULL,
+    email NVARCHAR(200) NOT NULL,
+    created_at DATETIME DEFAULT GETDATE(),
+    modified_at DATETIME NULL
+);
