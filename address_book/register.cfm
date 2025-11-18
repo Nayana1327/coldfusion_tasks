@@ -27,10 +27,11 @@
                 </div>
                 <div class="login-right">
                     <span class="login-title">SIGN UP</span>
-                    <cfoutput>#now()#</cfoutput>
-                    <cfset csrfToken = CSRFGenerateToken()>
                     <form action="" method="post" id="registerForm">
-                        <input type="hidden" name="csrf_token" id="csrf_token" value="#csrfToken#">
+                        <cfoutput>
+                            <cfset csrfToken = CSRFGenerateToken()>
+                            <input type="hidden" id="csrf_token" value="#csrfToken#">
+                        </cfoutput>
                         <input type="text" name="name" id="name" placeholder="Full Name" required><br>
                         <input type="text" name="email" id="email" placeholder="Email ID" required><br>
                         <input type="text" name="username" id="username" placeholder="Username" required><br>
