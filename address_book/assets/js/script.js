@@ -93,3 +93,15 @@ $(document).ready(function () {
     }
   });
 });
+
+document.addEventListener("click", function (e) {
+  if (e.target.matches("[data-open]")) {
+    const id = e.target.getAttribute("data-open");
+    document.getElementById(id).classList.add("show");
+  }
+
+  if (e.target.matches("[data-close]")) {
+    const id = e.target.getAttribute("data-close");
+    document.getElementById(id).classList.remove("show");
+  }
+});
