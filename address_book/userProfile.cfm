@@ -38,12 +38,20 @@
                     </div>
                     <button data-open="createContactModal" class="create-btn">CREATE CONTACT</button>
                 </div>
-                <div class="contact-box" id="contactList">
+                <div class="contact-box">
+                    <div class="contact-header">
+                        <div class="h-img"></div>
+                        <div class="h-name">NAME</div>
+                        <div class="h-email">EMAIL ID</div>
+                        <div class="h-phone">PHONE NUMBER</div>
+                        <div class="h-actions"></div>
+                    </div>
+                    <div id="contactList"></div>
                 </div>
             </div>
         </div>
         <div id="createContactModal" class="modal-overlay" aria-hidden="true">
-            <div class="modal-card" role="dialog" aria-modal="true">
+            <form id="createContactForm" enctype="multipart/form-data" class="modal-card" role="dialog" aria-modal="true">
                 <button class="modal-close" data-close="createContactModal">&times;</button>
                 <div class="modal-left">
                     <div class="modal-header">
@@ -53,9 +61,9 @@
                         <h3 class="section-title">Personal Contact</h3>
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Title</label>
-                                <select name="title" id="title">
-                                    <option>–</option>
+                                <label>Title *</label>
+                                <select name="title" id="title" required>
+                                    <option>-</option>
                                     <option>Mr.</option>
                                     <option>Ms.</option>
                                     <option>Mrs.</option>
@@ -63,25 +71,25 @@
                             </div>
                             <div class="form-group">
                                 <label>First Name *</label>
-                                <input type="text" name="first_name" id="first_name" placeholder="Your First Name">
+                                <input type="text" name="first_name" id="first_name" placeholder="Your First Name" required>
                             </div>
                             <div class="form-group">
                                 <label>Last Name *</label>
-                                <input type="text" name="last_name" id="last_name" placeholder="Your Last Name">
+                                <input type="text" name="last_name" id="last_name" placeholder="Your Last Name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label>Gender</label>
-                                <select name="gender" id="gender">
-                                    <option>–</option>
+                                <label>Gender *</label>
+                                <select name="gender" id="gender" required>
+                                    <option>-</option>
                                     <option>Male</option>
                                     <option>Female</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Date Of Birth</label>
-                                <input type="date" name="dob" id="dob">
+                                <label>Date Of Birth *</label>
+                                <input type="date" name="dob" id="dob" required>
                             </div>
                         </div>
                         <div class="form-row">
@@ -94,42 +102,43 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Address *</label>
-                                <input type="text" name="address" id="address" placeholder="Your Address">
+                                <input type="text" name="address" id="address" placeholder="Your Address" required>
                             </div>
                             <div class="form-group">
                                 <label>Street *</label>
-                                <input type="text" name="street" id="street" placeholder="Your Street Name">
+                                <input type="text" name="street" id="street" placeholder="Your Street Name" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>City *</label>
-                                <input type="text" name="city" id="city" placeholder="Your City">
+                                <input type="text" name="city" id="city" placeholder="Your City" required>
                             </div>
                             <div class="form-group">
                                 <label>State *</label>
-                                <input type="text" name="state" id="state" placeholder="Your State">
+                                <input type="text" name="state" id="state" placeholder="Your State" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>ZIP *</label>
-                                <input type="text" name="zip" id="zip" placeholder="ZIP">
+                                <input type="text" name="zip" id="zip" placeholder="ZIP" required>
                             </div>
                             <div class="form-group">
                                 <label>Phone *</label>
-                                <input type="text" name="phone" id="phone" placeholder="Phone">
+                                <input type="text" name="phone" id="phone" placeholder="Phone" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Email *</label>
-                                <input type="email" name="email" id="email" placeholder="Email">
+                                <input type="email" name="email" id="email" placeholder="Email" required>
                             </div>
                         </div>
+                        <div id="response"></div>
                         <div class="form-actions">
                             <button type="button" class="btn-secondary" data-close="createContactModal">Cancel</button>
-                            <button type="button" class="btn-primary">Save Contact</button>
+                            <button type="submit" class="btn-primary" id="saveContactBtn">Save Contact</button>
                         </div>
                     </div>
                 </div>
@@ -138,7 +147,7 @@
                         <img src="assets/images/user.png" alt="avatar">
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </body>
 </html>

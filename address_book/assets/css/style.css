@@ -311,6 +311,25 @@ select {
 .h3 {
     color: #1e73be;
 }
+.contact-box {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    padding: 0;
+}
+.contact-header {
+    display: grid;
+    grid-template-columns: 90px 0.65fr 1fr 1.3fr 2.5fr;
+    padding: 20px 20px;
+    color: #4a6485;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
 
 
 

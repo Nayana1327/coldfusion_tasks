@@ -92,6 +92,65 @@ $(document).ready(function () {
       $("#response").html('<div class="response-box">' + msg + "</div>");
     }
   });
+
+  $("#createContactForm").on("submit", function (e) {
+    e.preventDefault();
+    $("#response").html("");
+
+    const title = $("#title").val().trim();
+    const first_name = $("#first_name").val().trim();
+    const last_name = $("#last_name").val().trim();
+    const gender = $("#gender").val().trim();
+    const dob = $("#dob").val().trim();
+    const address = $("#address").val().trim();
+    const street = $("#street").val().trim();
+    const city = $("#city").val().trim();
+    const state = $("#state").val().trim();
+    const zip = $("#zip").val().trim();
+    const phone = $("#phone").val().trim();
+    const contact_email = $("#email").val().trim();
+
+    if (title === "-") return showError("Please select a title.");
+    if (!first_name) return showError("First name is required.");
+    if (!last_name) return showError("Last name is required.");
+    if (gender === "-") return showError("Please select a gender.");
+    if (!dob) return showError("Date of birth is required.");
+    if (!address) return showError("Address is required.");
+    if (!street) return showError("Street is required.");
+    if (!city) return showError("City is required.");
+    if (!state) return showError("State is required.");
+    if (!zip) return showError("ZIP code is required.");
+    if (!/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/.test(zip)) return showError("Enter a valid ZIP code.");
+    if (!phone) return showError("Phone number is required.");
+    if (!/^[6-9][0-9]{9}$/.test(phone))
+      return showError("Enter a valid phone number.");
+    if (!contact_email) return showError("Email is required.");
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(contact_email))
+      return showError("Enter a valid email address.");
+
+    const fd = new FormData(this);
+    $.ajax({
+      url: "components/contact.cfc?method=createContact",
+      method: "POST",
+      data: fd,
+      contentType: false,
+      processData: false,
+      success: function (res) {
+        if (res.success) {
+          $("#response").html(
+            "<p class='success'>Contact Saved Successfully!</p>"
+          );
+          $("#createContactForm")[0].reset();
+        } else {
+          $("#response").html("<p class='error'>" + res.message + "</p>");
+        }
+      },
+    });
+
+    function showError(msg) {
+      $("#response").html('<div class="response-box error">' + msg + "</div>");
+    }
+  });
 });
 
 document.addEventListener("click", function (e) {
