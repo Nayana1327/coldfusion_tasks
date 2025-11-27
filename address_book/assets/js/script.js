@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  loadContacts();
+
   $("#registerForm").on("submit", function (e) {
     e.preventDefault();
     $("#response").html("");
@@ -120,7 +122,8 @@ $(document).ready(function () {
     if (!city) return showError("City is required.");
     if (!state) return showError("State is required.");
     if (!zip) return showError("ZIP code is required.");
-    if (!/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/.test(zip)) return showError("Enter a valid ZIP code.");
+    if (!/^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/.test(zip))
+      return showError("Enter a valid ZIP code.");
     if (!phone) return showError("Phone number is required.");
     if (!/^[6-9][0-9]{9}$/.test(phone))
       return showError("Enter a valid phone number.");
@@ -133,6 +136,7 @@ $(document).ready(function () {
       url: "components/contact.cfc?method=createContact",
       method: "POST",
       data: fd,
+      dataType: "json",
       contentType: false,
       processData: false,
       success: function (res) {
@@ -141,9 +145,13 @@ $(document).ready(function () {
             "<p class='success'>Contact Saved Successfully!</p>"
           );
           $("#createContactForm")[0].reset();
+          window.location.href = "userProfile.cfm";
         } else {
-          $("#response").html("<p class='error'>" + res.message + "</p>");
+          showError(res.message);
         }
+      },
+      error: function () {
+        showError("Server error. Please try again later.");
       },
     });
 
@@ -151,6 +159,45 @@ $(document).ready(function () {
       $("#response").html('<div class="response-box error">' + msg + "</div>");
     }
   });
+
+  function loadContacts() {
+    $.ajax({
+      url: "components/contact.cfc?method=listContacts",
+      method: "GET",
+      dataType: "json",
+      success: function (res) {
+        if (!res.SUCCESS) {
+          $("#contactList").html(
+            "<p class='error'>Unable to load contacts.</p>"
+          );
+          return;
+        }
+        let html = "";
+        res.DATA.forEach((c) => {
+          let photo =
+            c.PHOTO && c.PHOTO !== ""
+              ? "assets/uploads/" + c.PHOTO
+              : "assets/uploads/default-avatar.jpg";
+          html += `
+                <div class="contact-row">
+                  <div class="contact-left">
+                    <img src="${photo}" class="contact-image">
+                  </div>
+                  <div class="contact-name">${c.FIRST_NAME} ${c.LAST_NAME}</div>
+                  <div class="contact-email">${c.EMAIL}</div>
+                  <div class="contact-phone">${c.PHONE}</div>
+                  <div class="contact-actions">
+                    <button class="btn-outline" onclick="editContact(${c.ID})">EDIT</button>
+                    <button class="btn-outline" onclick="deleteContact(${c.ID})">DELETE</button>
+                    <button class="btn-outline" onclick="viewContact(${c.ID})">VIEW</button>
+                  </div>
+                </div>
+                `;
+        });
+        $("#contactList").html(html);
+      },
+    });
+  }
 });
 
 document.addEventListener("click", function (e) {
