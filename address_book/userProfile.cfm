@@ -41,9 +41,9 @@
                 <div class="contact-box">
                     <div class="contact-header">
                         <div class="h-img"></div>
-                        <div class="h-name">NAME</div>
-                        <div class="h-email">EMAIL ID</div>
-                        <div class="h-phone">PHONE NUMBER</div>
+                        <div class="h-name">Name</div>
+                        <div class="h-email">Email ID</div>
+                        <div class="h-phone">Phone Number</div>
                         <div class="h-actions"></div>
                     </div>
                     <div id="contactList"></div>
@@ -148,6 +148,32 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div id="viewContactModal" class="modal-overlay" aria-hidden="true">
+            <div class="modal-left">
+                <div class="modal-header">
+                    <h2>CONTACT DETAILS</h2>
+                </div>
+                <div class="modal-content">
+                    <table class="details-table">
+                        <tr><td class="label">Name</td><td>:</td><td id="vc_name"></td></tr>
+                        <tr><td class="label">Gender</td><td>:</td><td id="vc_gender"></td></tr>
+                        <tr><td class="label">Date of Birth</td><td>:</td><td id="vc_dob"></td></tr>
+                        <tr><td class="label">Address</td><td>:</td><td id="vc_address"></td></tr>
+                        <tr><td class="label">Pincode</td><td>:</td><td id="vc_zip"></td></tr>
+                        <tr><td class="label">Email ID</td><td>:</td><td id="vc_email"></td></tr>
+                        <tr><td class="label">Phone</td><td>:</td><td id="vc_phone"></td></tr>
+                    </table>
+                    <div class="form-actions">
+                        <button class="modal-close" onclick="closeViewModal()">CLOSE</button>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <div class="avatar-box">
+                        <img id="vc_photo" class="modal-photo">
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

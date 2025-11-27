@@ -28,10 +28,7 @@
                 <div class="login-right">
                     <span class="login-title">LOGIN</span>
                     <form action="" method="post" id="loginForm">
-                        <cfoutput>
-                            <cfset csrfToken = CSRFGenerateToken()>
-                            <input type="hidden" id="csrf_token" value="#csrfToken#">
-                        </cfoutput>
+                        <input type="hidden" id="csrf_token" value="<cfoutput>#CSRFGenerateToken()#</cfoutput>"> 
                         <input type="text" name="username" id="username" placeholder="Username" required><br>
                         <input type="password" name="password" id="password" placeholder="Password" required><br>
                         <input type="submit" name="login" class="login-button" value="LOGIN">

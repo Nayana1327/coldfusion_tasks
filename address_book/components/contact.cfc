@@ -17,6 +17,11 @@
 
         <cfset var result = { "success" = false, "message" = "" }>
 
+        <cfif NOT structKeyExists(session, "userID") OR session.userID EQ "">
+            <cfset result.message = "User not logged in.">
+            <cfreturn result>
+        </cfif>
+
         <cfset title      = trim(encodeForHTML(arguments.title))>
         <cfset first_name = trim(encodeForHTML(arguments.first_name))>
         <cfset last_name  = trim(encodeForHTML(arguments.last_name))>
@@ -70,15 +75,15 @@
             <cfreturn result>
         </cfif>
 
-        <cfif NOT isValid("email", emailAddr)>
+        <!--- <cfif NOT isValid("email", emailAddr)>
             <cfset result.message = "Invalid email address.">
             <cfreturn result>
-        </cfif>
+        </cfif> --->
 
         <cfset photoPath = "">
 
         <cfif structKeyExists(form, "photo") AND len(form.photo)>
-            <cfset uploadDir = expandPath("./uploads/")>
+            <cfset uploadDir = expandPath("../assets/uploads/")>
             <cfif NOT directoryExists(uploadDir)>
                 <cfdirectory action="create" directory="#uploadDir#">
             </cfif>
@@ -98,8 +103,8 @@
             <cfset contact = entityNew("Contact")>
 
             <cfset contact.setTitle(title)>
-            <cfset contact.setFirstName(first_name)>
-            <cfset contact.setLastName(last_name)>
+            <cfset contact.setFirst_name(first_name)>
+            <cfset contact.setLast_name(last_name)>
             <cfset contact.setGender(gender)>
             <cfset contact.setDob(createODBCDate(dobValue))>
             <cfset contact.setAddress(address)>
@@ -113,6 +118,9 @@
             <cfif photoPath NEQ "">
                 <cfset contact.setPhoto(photoPath)>
             </cfif>
+
+            <cfset userObj = entityLoadByPK("User", session.userID)>
+            <cfset contact.setUser(userObj)>
 
             <cfset entitySave(contact)>
             <cfset ormFlush()>
@@ -128,6 +136,52 @@
                 <cfreturn result>
             </cfcatch>
 
+        </cftry>
+    </cffunction>
+
+    <cffunction name="listContacts" access="remote" returntype="struct" returnformat="json">
+        <cfset var result = { success = false, data = [] }>
+
+        <cfif NOT structKeyExists(session, "userID") OR session.userID EQ "">
+            <cfset result.message = "User not logged in.">
+            <cfreturn result>
+        </cfif>
+
+        <cftry>
+            <cfset userObj = entityLoadByPK("User", session.userID)>
+            <cfset contacts = entityLoad("Contact", { user = userObj }, "id DESC")>
+
+            <cfset var contactList = []>
+
+            <cfloop array="#contacts#" index="c">
+                <cfset arrayAppend(contactList, {
+                    id         = c.getID(),
+                    title      = c.getTitle(),
+                    first_name = c.getFirst_name(),
+                    last_name  = c.getLast_name(),
+                    gender     = c.getGender(),
+                    dob        = c.getDob(),
+                    address    = c.getAddress(),
+                    street     = c.getStreet(),
+                    city       = c.getCity(),
+                    state      = c.getState(),
+                    zip        = c.getZip(),
+                    phone      = c.getPhone(),
+                    email      = c.getEmail(),
+                    photo      = c.getPhoto()
+                })>
+            </cfloop>
+
+            <cfset result.success = true>
+            <cfset result.data = contactList>
+            <cfreturn result>
+
+            <cfcatch>
+                <cfset result.success = false>
+                <cflog type="error" text="Error on listing contact: #cfcatch.message#">
+                <cfset result.message = "Error on listing: #cfcatch.message#">
+                <cfreturn result>
+            </cfcatch>
         </cftry>
     </cffunction>
 
