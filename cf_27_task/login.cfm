@@ -13,17 +13,23 @@
             <input type="submit" name="login" value="Login">
         </form>
         <cfif structKeyExists(form, "login")>
-            <cfset username = form.username>
-            <cfset password = form.password>
-            <cfif username EQ "admin" AND password EQ "password123">
+            <cfparam name="form.username" default="" type="string">
+            <cfparam name="form.password" default="" type="string">
+
+            <cfquery name="getUser" datasource="CFTestDS">
+                SELECT username, password
+                FROM users
+                WHERE username = <cfqueryparam value="#form.username#" cfsqltype="cf_sql_varchar">
+            </cfquery>
+
+            <cfif getUser.recordCount EQ 1 AND hash(form.password, "SHA-512") EQ getUser.password>
                 <cfset session.loggedIn = true>
-                <cfset session.username = username>
+                <cfset session.username = form.username>
                 <cflocation url="welcome.cfm">
             <cfelse>
-                <cfoutput>
-                    <p style="color: red;">Invalid login credentials. Please try again.</p>
-                </cfoutput>
+                <cfoutput><p style="color:red;">Invalid login credentials. Please try again.</p></cfoutput>
             </cfif>
+
         </cfif>
     </body>
 </html>
